@@ -13,19 +13,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @Composable
-fun SecondScreen(navigateToFirstScreen:() -> Unit) {
+fun SecondScreen(
+    name: String,
+    age: Int,
+    navigateToSecondScreen: () -> Unit
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Enter name", fontSize = 24.sp)
+        Text(text = "Second Screen", fontSize = 24.sp)
         Spacer(modifier = Modifier.height(16.dp))
-        Text("Welcome", fontSize = 20.sp)
+        Text("Welcome ${name}, age: ${age}", fontSize = 20.sp)
         Spacer(modifier = Modifier.height(16.dp))
-        TextButton(onClick = {navigateToFirstScreen()}) {
+        TextButton(onClick = navigateToSecondScreen) {
             Text(
                 text = "Go to second screen",
                 fontSize = 18.sp,
@@ -37,5 +42,5 @@ fun SecondScreen(navigateToFirstScreen:() -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun SecondScreenPreview(){
-    SecondScreen({})
+    SecondScreen("Dawid", 1, {})
 }

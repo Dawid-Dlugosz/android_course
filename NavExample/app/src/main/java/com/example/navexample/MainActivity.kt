@@ -45,7 +45,24 @@ fun MyApp() {
         navController = navController,
         startDestination = Routes.FirstScreen.name
     ) {
-        composable(route = Routes.FirstScreen.name) { FirstScreen { navController.navigate(Routes.SecondScreen.name) } }
-        composable(route = Routes.SecondScreen.name){ SecondScreen { navController.navigate(Routes.FirstScreen.name) } }
+        composable(route = Routes.FirstScreen.name) {
+            FirstScreen {
+                name, age ->
+                println("asdfsdffsda ${age}")
+                navController.navigate("${Routes.SecondScreen.name}/${name}/${age}")
+            }
+        }
+        composable(route = "${Routes.SecondScreen.name}/{name}/{age}") {
+
+            val name = it.arguments?.getString("name") ?: "no name"
+            val age = it.arguments?.getString("age") ?: "0"
+
+            SecondScreen(
+                name = name,
+                age = age.toInt()
+            ) {
+                navController.navigate(Routes.FirstScreen.name)
+            }
+        }
     }
 }
