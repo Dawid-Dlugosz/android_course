@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.myrecipeapp"
+    namespace = "com.example.navexample"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.myrecipeapp"
+        applicationId = "com.example.navexample"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -50,11 +50,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.lifecycle.viewmodel.compose)
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-    implementation(libs.coil.compose)
-
+    implementation (libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
