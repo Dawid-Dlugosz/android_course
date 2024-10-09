@@ -1,15 +1,14 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.example.myrecipeapp"
+    namespace = "com.example.locationapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.myrecipeapp"
+        applicationId = "com.example.locationapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -51,12 +50,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.navigation.compose)
-
-    implementation(libs.lifecycle.viewmodel.compose)
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-    implementation(libs.coil.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
